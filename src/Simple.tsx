@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 
 // The editor core
 import Editor from "@react-page/editor";
@@ -29,10 +28,10 @@ const plugins = {
   content: [slate()],
   
   // Define plugins for layout cells
-  layout: [background({ defaultPlugin: slate() })] 
+  layout: [background({ defaultPlugin: slate(), imageUpload: null as any })] 
 };
 
-const Simple = () => {
+export default () => {
   const [editorValue, setEditorValue] = useState(null);
   return (
     <Editor 
@@ -42,8 +41,3 @@ const Simple = () => {
       onChange={setEditorValue} />
   );
 };
-
-
-ReactDOM.render(<Simple />, document.getElementById("root"));
-
-export default Simple;
